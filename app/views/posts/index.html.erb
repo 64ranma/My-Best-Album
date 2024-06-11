@@ -1,0 +1,11 @@
+<% @posts.each do |post| %>
+  <div>
+    <%= link_to post_path(post.id) do %>
+      <%= image_tag post.get_image %>
+    <% end %>
+    <p>アルバム名：<%= post.album_name %></p>
+    <p>説明：<%= post.body %></p>
+    <p>ユーザーネーム：<%= post.user.name %></p>
+    <p>投稿ユーザー画像：<%= image_tag 'logo.png' %></p>
+  </div>
+<% end %>

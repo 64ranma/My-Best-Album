@@ -1,0 +1,12 @@
+<h1>画像投稿フォーム</h1>
+<%= form_with model: @post do |f| %>
+  <h4>画像</h4>
+  <%= f.file_field :image, accept: "image/*" %>
+  <h4>アルバム名</h4>
+  <%= f.text_field :album_name %>
+  <h4>歌手名</h4>
+  <%= f.text_field :singer_name %>
+  <h4>説明</h4>
+  <%= f.text_area :body %>
+  <%= f.submit '投稿' %>
+<% end %>
