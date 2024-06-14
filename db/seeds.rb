@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "データの作成を開始します"
+
+taro = User.find_or_create_by!(email: "taro@example.com") do |user|
+  user.name = "taro"
+  user.password = "taro0401"
+end
+
+taro.posts.find_or_create_by!(album_name: "aiueo", singer_name: "kakikukeko") do |post|
+  post.body = "アルバムですよ"
+end
+
+puts "データの作成が完了しました"
