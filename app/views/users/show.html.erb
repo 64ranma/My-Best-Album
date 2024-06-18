@@ -1,6 +1,6 @@
 <div>
   <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
+  <%= image_tag @user.get_profile_image(20,20) %>
   <% if @user == current_user %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>
@@ -11,7 +11,7 @@
   <%= link_to post_path(post.id) do %>
     <%= image_tag post.get_image %>
   <% end %>
-  <p>投稿ユーザー画像：<%= image_tag post.user.get_profile_image(100,100) %></p>
+  <p>投稿ユーザー画像：<%= image_tag post.user.get_profile_image(50,50) %></p>
   <p>アルバム名：<%= post.album_name %></p>
   <p>説明：<%= post.body %></p>
   <p>ユーザーネーム：<%= post.user.name %></p>
