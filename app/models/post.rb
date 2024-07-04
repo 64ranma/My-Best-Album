@@ -6,6 +6,10 @@ class Post < ApplicationRecord
   validates :album_name, presence: true
   validates :singer_name, presence: true
   validates :body, presence: true
+  
+  def self.search(word)
+    Post.where("album_name LIKE ?", "%#{word}%").or(Post.where("singer_name LIKE ?", "%#{word}%"))
+  end
 
   def get_image
     unless image.attached?
