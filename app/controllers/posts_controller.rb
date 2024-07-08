@@ -15,6 +15,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    if params[:singer_name]
+      @posts = @posts.where(singer_name: params[:singer_name])
+    end
   end
 
   def show

@@ -1,3 +1,8 @@
+<%= form_with url: posts_path, method: :get do |f| %>
+  <%= f.label :singer_name, "歌手名" %>
+  <%= f.text_field :singer_name %>
+  <%= f.submit %>
+<% end %>
 <% @posts.each do |post| %>
   <div>
     <%= link_to post_path(post.id) do %>
