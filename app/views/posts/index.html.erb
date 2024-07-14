@@ -16,43 +16,44 @@
         <%= f.text_field :query ,placeholder: "歌手名・アルバムタイトル"%>
         <%= f.submit "検索" %>
       <% end %>
- <br></br>
-  <h3>新規投稿</h3>
-  <%= form_with model: @post do |f| %>
-  <h6>画像</h6>
-  <%= f.file_field :image, accept: "image/*" %>
-  <h6>アルバム名</h6>
-  <%= f.text_field :album_name %>
-  <h6>歌手名</h6>
-  <%= f.text_field :singer_name %>
-  <h6>説明</h6>
-  <%= f.text_area :body %>
-  <%= f.submit '投稿' %>
-  <% end %>
-
-</div>
-
-
-<div class="col-md-8 offset-md-1">
-  
-<% @posts.each do |post| %>
-  <div>
-     <div class="border border-bottom pb-3 mb-3">
-    <%= link_to post_path(post.id) do %>
-      <%= image_tag post.get_image,size:"100x100" %>
-    <% end %>
-    <p>アルバム名：<%= post.album_name %></p>
-    <p>歌手名：<%= post.singer_name %></p>
-    <p>説明：<%= truncate(post.body, length: 50) %></p>
-    <p>ユーザーネーム：<%= post.user.name %></p>
-    <p>投稿ユーザー画像：<%= link_to user_path(post.user) do %>
-  　   <%= image_tag post.user.get_profile_image(20, 20) %>
+      <br></br>
+      
+      <h3><%= link_to "新規投稿", new_post_path, style: "color: black;" %></h3>
+      <%= form_with model: @post do |f| %>
+      <h6>画像</h6>
+      <%= f.file_field :image, accept: "image/*" %>
+      <h6>アルバム名</h6>
+      <%= f.text_field :album_name %>
+      <h6>歌手名</h6>
+      <%= f.text_field :singer_name %>
+      <h6>説明</h6>
+      <%= f.text_area :body %>
+      <%= f.submit '投稿' %>
       <% end %>
-    </p>
+      
+    </div>
+    
+    
+    <div class="col-md-8 offset-md-1">
+      
+      <% @posts.each do |post| %>
+      
+      <div class="border border-bottom pb-3 mb-3">
+          <%= link_to post_path(post.id) do %>
+            <%= image_tag post.get_image,size:"100x100" %>
+          <% end %>
+          <p>アルバム名：<%= post.album_name %></p>
+          <p>歌手名：<%= post.singer_name %></p>
+          <p>説明：<%= truncate(post.body, length: 50) %></p>
+          <p>ユーザーネーム：<%= post.user.name %></p>
+          <p>投稿ユーザー画像：<%= link_to user_path(post.user) do %>
+      　     <%= image_tag post.user.get_profile_image(20, 20) %>
+            <% end %>
+          </p>
+      </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-</div>
-</div>
-    </div> 
+</div> 
   
 

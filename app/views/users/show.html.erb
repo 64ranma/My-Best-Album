@@ -1,19 +1,24 @@
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(20,20) %>
-  <% if @user == current_user %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
+<div class="container px-5 px-sm-0 mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <h1><%= @user.name %></h1>
+      <%= image_tag @user.get_profile_image(80,80) %>
+      <% if @user == current_user %>
+        <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+      <% end %>
+    </div>
+    
+    <div class="col-md-8 mt-3">
+      <% @posts.each do |post| %>
+        <div class="border border-bottom pb-3 mb-3">
+          <%= link_to post_path(post.id) do %>
+            <%= image_tag post.get_image,size:"100*100" %>
+          <% end %>
+          <p>アルバム名：<%= post.album_name %></p>
+          <p>説明：<%= post.body %></p>
+          <p>ユーザーネーム：<%= post.user.name %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<% @posts.each do |post| %>
-<div>
-  <%= link_to post_path(post.id) do %>
-    <%= image_tag post.get_image %>
-  <% end %>
-  <p>投稿ユーザー画像：<%= image_tag post.user.get_profile_image(50,50) %></p>
-  <p>アルバム名：<%= post.album_name %></p>
-  <p>説明：<%= post.body %></p>
-  <p>ユーザーネーム：<%= post.user.name %></p>
-</div>
-<% end %>
