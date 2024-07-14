@@ -14,9 +14,11 @@ class PostsController < ApplicationController
   end
 
   def index
+    @post = Post.new
     @posts = Post.all
-    if params[:singer_name]
-      @posts = @posts.where(singer_name: params[:singer_name])
+    if params[:query]
+      query = params[:query]
+      @posts = @posts.where("singer_name LIKE ? OR album_name LIKE ?", "%#{query}%", "%#{query}%")
     end
   end
 
