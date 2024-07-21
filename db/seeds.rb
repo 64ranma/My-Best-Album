@@ -17,4 +17,10 @@ taro.posts.find_or_create_by!(album_name: "aiueo", singer_name: "kakikukeko") do
   post.body = "アルバムですよ"
 end
 
+Admin.create!(
+  email: "admin@example.com",
+  password: "admin0401"
+)
+
 puts "データの作成が完了しました"
+
