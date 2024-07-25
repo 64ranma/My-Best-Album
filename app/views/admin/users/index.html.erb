@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4 class="my-5">投稿者一覧</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>氏名</th>
+              <th>メールアドレス</th>
+            </tr>
+          </thead>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= link_to user.name, edit_admin_user_path(user) %></td>
+              <td><%= user.email %></td>
+            </tr>
+          <% end %>
+        </table>
+    </div>
+  </div>
+</div>
+

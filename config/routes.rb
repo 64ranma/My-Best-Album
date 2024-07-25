@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :review_comments
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
   }
   
-  devise_for :customers, skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
-  }
   
   devise_for :users
   root to: "homes#top"
@@ -16,4 +13,9 @@ Rails.application.routes.draw do
     resource :good, only: [:create, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
+  
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :posts, only: [:index, :destroy]
+  end
 end
