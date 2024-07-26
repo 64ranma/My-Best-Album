@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :review_comments
+  
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
   }
