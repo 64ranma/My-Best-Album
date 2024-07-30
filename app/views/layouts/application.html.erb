@@ -33,10 +33,10 @@
             <% if admin_signed_in? %>
               <% if request.fullpath.include? "/admin" %>
                 <li class="nav-item">
-                  <%= link_to "投降者一覧", admin_users_path %>
+                  <%= link_to "投稿者一覧", admin_users_path %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "投降編集", admin_posts_path %>
+                  <%= link_to "投稿編集", admin_posts_path %>
                 </li>
                 <li class="nav-item">  
                   <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
