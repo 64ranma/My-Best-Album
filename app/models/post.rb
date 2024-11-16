@@ -4,9 +4,9 @@ class Post < ApplicationRecord
   
   has_one_attached :image
 
-  validates :album_name, presence: true
-  validates :singer_name, presence: true
-  validates :body, presence: true
+  validates :album_name, presence: {message: "can't be blank　＜アルバム名を入れてください＞"}
+  validates :singer_name, presence: {message: "can't be blank　＜歌手名を入れてください＞"}
+  validates :body, presence: {message: "can't be blank　＜アルバムへの思いを書いてください（10文字以上）＞"}, length: {minimum: 10}
   
   def self.search(word)
     Post.where("album_name LIKE ?", "%#{word}%").or(Post.where("singer_name LIKE ?", "%#{word}%"))
