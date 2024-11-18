@@ -13,8 +13,10 @@
         <% if @post.image.attached? %>
           <%= image_tag @post.image, size:"80*80" %>
         <% end %>
-
+      <br>
       <%= f.file_field :image, accept: "image/*" %>
+      <br>
+      <br>
       <h6>アルバム名</h6>
         <%= f.text_field :album_name %>
       <h6>歌手名</h6>
