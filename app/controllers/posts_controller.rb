@@ -31,14 +31,13 @@ class PostsController < ApplicationController
   end
   
   def update
-    post = Post.find(params[:id])
-    
-    if params[:post][:image].present?
-      post.image = params[:post][:image]
+    @post = Post.find(params[:id])
+    @post.image = params[:post][:image] if params[:post][:image].present?
+    if @post.update(post_params)
+      redirect_to post_path(@post.id)  
+    else
+      render :edit
     end
-    
-    post.update(post_params)
-    redirect_to post_path(post.id)  
   end
     
   def destroy
