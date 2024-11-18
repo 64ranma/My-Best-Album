@@ -32,7 +32,6 @@ class PostsController < ApplicationController
   
   def update
     @post = Post.find(params[:id])
-    @post.image = params[:post][:image] if params[:post][:image].present?
     if @post.update(post_params)
       redirect_to post_path(@post.id)  
     else
