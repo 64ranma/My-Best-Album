@@ -11,7 +11,7 @@
   
     <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
         <% if @post.image.attached? %>
-          <%= image_tag @post.image, size:"80*80" %>
+          <%= image_tag @post.image, size:"400x400" %>
         <% end %>
       <br>
       <%= f.file_field :image, accept: "image/*" %>
