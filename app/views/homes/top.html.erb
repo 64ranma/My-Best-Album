@@ -6,16 +6,10 @@
       <p>In this site, you can share your opinions , inpressions , and emotions</p>
       <p> about your favorite music!</p>
     </div>
-      <div class="btn-wrapper col-10 mx-auto">
-          <div class="row">
-            <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-          </div>
-          <div class="row">
-            <%= link_to 'Log in', '/users/sign_in', class: 'btn btn-info btn-sm btn-block mb-3 sign_up' %>
-          </div>
-          <div class="row">
-            <%= link_to 'Sign up', '/users/sign_up', class: 'btn btn-success btn-sm btn-block mb-3 sign_in' %>
-          </div>
+      <div class="btn-wrapper col-7 mx-auto">
+        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+        <%= link_to 'Log in', '/users/sign_in', class: 'btn btn-info btn-sm btn-block mb-3 sign_up' %>
+        <%= link_to 'Sign up', '/users/sign_up', class: 'btn btn-success btn-sm btn-block mb-3 sign_in' %>
       </div>
   </div>
 </div>
