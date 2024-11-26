@@ -1,4 +1,4 @@
-<div class="container px-5 px-sm-0">
+<div class="container-fluid">
   <div id="notice">
     <% if @post.errors.full_messages.present? %>
     <ul>
@@ -11,7 +11,7 @@
   
   <p id="notice"><%= notice %></p>
   <div class="row">
-    <div class="col-md-4">          
+    <div class="col-md-3">          
       <%= form_with url: posts_path, method: :get do |f| %>
         <%= f.text_field :query ,placeholder: "歌手名・アルバムタイトル"%>
         <%= f.submit "検索" %>
@@ -30,27 +30,23 @@
       <%= f.text_area :body %>
       <%= f.submit '投稿' %>
       <% end %>
-      
     </div>
     
     
-    <div class="col-md-7 offset-md-1">
-      
+    <div class="post-wrap col-md-8 offset-md-1">
       <% @posts.each do |post| %>
-      
-      <div class="border border-bottom pb-3 mb-3">
+        <div class="post-box">
           <%= link_to post_path(post.id) do %>
-            <%= image_tag post.get_image,size:"100x100" %>
+            <%= image_tag post.get_image,size:"150x150" %>
           <% end %>
-          <p>アルバム名：<%= post.album_name %></p>
-          <p>歌手名：<%= post.singer_name %></p>
-          <p>説明：<%= truncate(post.body, length: 50) %></p>
-          <p>ユーザーネーム：<%= post.user.name %></p>
-          <p>投稿ユーザー画像：
-            <%= link_to user_path(post.user) do %>
-              <%= image_tag post.user.get_profile_image(20, 20) %>
-            <% end %></p>
-      </div>
+          <div class="post-comment">
+            <p><%= truncate(post.body, length: 10) %>
+              <%= link_to user_path(post.user) do %>
+                <%= image_tag post.user.get_profile_image(20, 20) %>
+              <% end %>
+            </p>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

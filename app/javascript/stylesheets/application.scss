@@ -1,1 +1,16 @@
 @use '~bootstrap/scss/bootstrap';
+
+.container-fluid {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.post-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.post-box {
+  margin-left: 20px;
+}
