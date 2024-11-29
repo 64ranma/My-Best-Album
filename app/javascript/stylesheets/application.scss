@@ -11,7 +11,12 @@ main {
   padding: 16px 24px;
   margin: 16px 0px;
 }
- 
+
+.border {
+  border-width: 3px !important;
+  border-color: #7d4802 !important;
+}
+
 .flash-message.notice {
   background-color: #bcdfff;
   color: #000000;
@@ -22,6 +27,22 @@ main {
   background-color: #ffd4d1;
   color: #930403;
   border: solid 1px #930403;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.edit-link {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.edit-link:hover {
+  text-decoration: underline;
 }
 
 .post-wrap {
