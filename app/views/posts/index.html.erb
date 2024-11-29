@@ -1,15 +1,4 @@
 <div class="container-fluid">
-  <div id="notice">
-    <% if @post.errors.full_messages.present? %>
-    <ul>
-       <% @post.errors.full_messages.each do |msg| %>
-         <li><%= msg %></li>
-       <% end %>
-    </ul>
-    <% end %>
-  </div>
-  
-  <p id="notice"><%= notice %></p>
   <div class="row">
     <div class="col-md-3">          
       <%= form_with url: posts_path, method: :get do |f| %>
@@ -17,7 +6,7 @@
         <%= f.submit "検索" %>
       <% end %>
       <br></br>
-      
+    
       <h3><%= link_to "新規投稿", new_post_path, style: "color: black;" %></h3>
       <%= form_with model: @post do |f| %>
       <h6>画像</h6>
@@ -31,8 +20,8 @@
       <%= f.submit '投稿' %>
       <% end %>
     </div>
-    
-    
+  
+  
     <div class="post-wrap col-md-8 offset-md-1 offset-lg-0">
       <% @posts.each do |post| %>
         <div class="post-box">

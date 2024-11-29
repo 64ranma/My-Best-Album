@@ -7,8 +7,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
+      flash[:notice] = "投稿に成功しました。"
       redirect_to posts_path
     else
+      flash.now[:alert] = "投稿に失敗しました。"
       render :new
     end
   end
@@ -42,6 +44,7 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
+    flash[:alert] = "記事を削除しました。"
     redirect_to posts_path
   end
 end

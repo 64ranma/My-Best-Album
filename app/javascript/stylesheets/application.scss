@@ -1,8 +1,27 @@
 @use '~bootstrap/scss/bootstrap';
 
-.container-fluid {
-  margin-right: 40px;
-  margin-left: 40px;
+main {
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.flash-message {
+  border-radius: 5px;
+  padding: 16px 24px;
+  margin: 16px 0px;
+}
+ 
+.flash-message.notice {
+  background-color: #bcdfff;
+  color: #000000;
+  border: solid 1px #0067C0;
+}
+ 
+.flash-message.alert {
+  background-color: #ffd4d1;
+  color: #930403;
+  border: solid 1px #930403;
 }
 
 .post-wrap {
