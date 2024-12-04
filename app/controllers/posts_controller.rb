@@ -10,7 +10,7 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿に成功しました。"
       redirect_to posts_path
     else
-      flash.now[:alert] = "投稿に失敗しました。"
+      flash.now[:alert] = "投稿失敗しました。"
       render :new
     end
   end
@@ -37,6 +37,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to post_path(@post.id)  
     else
+      flash.now[:alert] = '編集できませんでした'
       render :edit
     end
   end
@@ -44,8 +45,7 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    flash[:alert] = "記事を削除しました。"
-    redirect_to posts_path
+    redirect_to posts_path, alert:"記事を削除しました。"
   end
 end
 
