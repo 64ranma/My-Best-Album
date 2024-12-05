@@ -1,4 +1,4 @@
-<div class="container px-5 px-sm-0 mt-3">
+<div class="container px-5 px-sm-0 mt-3 text-center">
   
   <h3>記事の編集</h3>
     <% if @post.errors.full_messages.present? %>
@@ -23,11 +23,9 @@
         <%= f.text_field :singer_name %>
       <h6>説明</h6>
         <%= f.text_area :body, rows: "10", cols: "50"%>
-        
-      <%= f.submit '保存' %>
+      <%= f.submit '保存', class:"btn btn-success" %>
     <% end %>
+    <br>
 
-    <p><%= link_to "戻る", post_path %></p>
-    
-
+    <p><%= link_to "戻る", post_path, class:"btn btn-light" %></p>
 </div>
